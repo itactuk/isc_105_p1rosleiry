@@ -1,0 +1,58 @@
+//
+// Created by Ivan's PC on 10/13/2019.
+//
+
+/*Se dice que una matriz tiene un punto de silla si alguna posición de la matriz es el menor valor de su fila y
+a la vez el mayor de su columna. Escribir un programa que tenga como entrada una matriz de números reales,
+y calcule la posición de los puntos de silla (si es que existen)*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define CANTIDAD_MAXIMA_RESULTADOS 100
+
+//SIN ESTRUCTURAS y se para cuando va a leer la matriz
+
+int main(){
+
+    int m,n,i,j;
+
+    printf("Ingrese la cantidad de columnas: ");
+    scanf("%d",&m);
+    printf("Ingrese la cantidad de columnas: ");
+    scanf("%d",&n);
+
+    int matriz[m][n];
+    int filasmax[CANTIDAD_MAXIMA_RESULTADOS];
+    int colsmax[CANTIDAD_MAXIMA_RESULTADOS];
+
+    for(i=0;i<m;i++){
+        for(j=0;j<n;j++){
+            scanf("%d",&matriz[i][j]);
+        }
+    }
+
+    for(i=0;i<m;i++){
+        for(j=0;j<n+1;j++){
+            if(matriz[i][j]<filasmax[i]){
+                filasmax[i]=matriz[i][j];
+            }
+
+            if(matriz[i][j]>colsmax[i]){
+                colsmax[i]=matriz[i][j];
+            }
+        }
+    }
+
+    for(i=0;i<m;i++){
+        for(j=0;j<n+1;j++){
+            if(filasmax[i]<colsmax[j]){
+                printf("\nSillas en: (%d,%d)",i,j);
+            }
+        }
+    }
+
+
+
+    return 0;
+}
