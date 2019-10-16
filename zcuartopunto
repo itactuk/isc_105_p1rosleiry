@@ -1,0 +1,59 @@
+//
+// Created by Ivan's PC on 10/13/2019.
+//
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct producto{
+    int id;
+    char nombre[50];
+    double precio;
+};
+
+struct producto busqueda_binaria(int id, struct producto productos[], int n);
+struct producto _busqueda_binaria_recursiva(int id, struct producto prods[], int ii, int is);
+
+int main(){
+
+    struct producto prods[]={
+        {2, "Agua", 12.0},
+        {4, "Arroz", 15.0},
+        {6, "Mangu", 10.0},
+        {8, "Habichuela", 12.0},
+        {9, "Vaso", 2.0},
+    };
+
+
+    return 0;
+}
+
+//n cantidad de elementos en arreglo
+//retornar -1 si no se encuentra
+struct producto busqueda_binaria(int id, struct producto productos[], int n){
+    return _busqueda_binaria_recursiva(id, productos, 0, n-1);
+}
+
+struct producto _busqueda_binaria_recursiva(int id, struct producto prods[], int ii, int is){
+
+    int mitad;
+
+    if(prods[id]>=prods[ii]){
+
+            int mitad = ii + (is - 1=ii)/2;
+
+            if (prods[mitad] == is)
+                return mitad;
+
+            if (prods[mitad] > is) return _busqueda_binaria_recursiva(prods, ii, mitad-1, is);
+
+
+            return _busqueda_binaria_recursiva(prods, mitad+1, ii, is);
+       }
+       return -1;
+    }
+
+
+
+}
