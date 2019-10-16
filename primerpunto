@@ -1,0 +1,41 @@
+//
+// Created by Ivan's PC on 10/13/2019.
+//
+
+//función que invierta una cadena de caracteres (utilice puntero)
+
+#include <stdio.h>
+#include <string.h>
+#define cantcaracteres 500
+
+char *invertir(char cadena[]);
+
+int main(void) {
+
+    char cadena[cantcaracteres];
+    printf("Escriba la cadena de caracteres: ", cantcaracteres - 1);
+
+    fgets(cadena, cantcaracteres, stdin);
+
+
+    printf("\nTexto invertido: %s\n", invertir(cadena));
+
+    return 0;
+}
+
+
+char *invertir(char cadena[]) {
+
+    int longitud, i, j;
+    char var;
+
+    longitud = strlen(cadena);
+
+    for (i=0,j=longitud-1; i < (longitud / 2); i++, j--) {
+        var=cadena[i];
+        cadena[i]=cadena[j];
+        cadena[j]=var;
+    }
+
+  return cadena;
+}
