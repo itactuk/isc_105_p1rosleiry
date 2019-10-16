@@ -1,0 +1,88 @@
+//
+// Created by Ivan's PC on 10/13/2019.
+//
+
+/*Escribe un programa que permita hacer las operaciones de suma, resta, multiplicación y división de números complejos.
+El tipo complejo ha de definirse como una estructura*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+typedef struct COMPLEJO
+{
+    float real;
+    float imaginaria;
+} COMPLEJO;
+
+COMPLEJO suma(COMPLEJO a,COMPLEJO n2);
+COMPLEJO resta(COMPLEJO a, COMPLEJO b);
+COMPLEJO multiplica(COMPLEJO a, COMPLEJO b);
+COMPLEJO divide(COMPLEJO a, COMPLEJO b);
+
+int main()
+{
+    COMPLEJO a, b, temp;
+    printf("Primer numero complejo (parte real e imaginaria respectivamente)\n");
+    scanf("%f %f", &a.real, &a.imaginaria);
+    printf("Segundo numero complejo (parte real e imaginaria respectivamente)\n");
+    scanf("%f %f", &b.real, &b.imaginaria);
+
+    temp = suma(a,b);
+    printf("Suma = %.1f + %.1fi", temp.real, temp.imaginaria);
+
+    temp = resta(a,b);
+    printf("\nResta = %.1f - %.1fi", temp.real, temp.imaginaria);
+
+    temp = multiplica(a,b);
+    printf("\nMultiplicacion = %.1f * %.1fi", temp.real, temp.imaginaria);
+
+    /*temp = division(a,b);
+    printf("Division = %.1f / %.1fi", temp.real, temp.imaginaria);*/
+
+    return 0;
+}
+COMPLEJO suma(COMPLEJO a, COMPLEJO b)
+{
+      COMPLEJO temp;
+
+      temp.real = a.real + b.real;
+      temp.imaginaria = a.imaginaria + b.imaginaria;
+
+      return(temp);
+}
+
+
+COMPLEJO resta(COMPLEJO a, COMPLEJO b){
+
+      COMPLEJO temp;
+
+      temp.real = a.real - b.real;
+      temp.imaginaria = a.imaginaria - b.imaginaria;
+
+      return(temp);
+}
+
+
+COMPLEJO multiplica(COMPLEJO a, COMPLEJO b){
+
+      COMPLEJO temp;
+
+      temp.real = a.real * b.real;
+      temp.imaginaria = a.imaginaria * b.imaginaria;
+
+      return(temp);
+}
+
+/*
+COMPLEJO divide(COMPLEJO a, COMPLEJO b){
+      COMPLEJO temp;
+
+      temp.real = a.real / b.real;
+      temp.imaginaria = a.imaginaria / b.imaginaria;
+
+      return(temp);
+
+}*/
+
